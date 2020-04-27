@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../style.css">
-	<title>Jenny Ardrey Portfolio</title>
+	<title>CSS Practice Homepage</title>
 </head>
 
 <body>
@@ -17,6 +17,7 @@
 		</div>
 		<div class="title">A portfolio of my personal and commercial software and web development work. </div>
 		<div class="main-content">
+			<!-- <h2>Title</h2> -->
 			<p>Click on a project below to see more.</p>
 		</div>
 		<div class="carousel">
@@ -46,3 +47,188 @@
 			</div>
 
 		</div>
+		<style>
+			.webpage {
+				height: 100vh;
+				width: 100vw;
+				display: grid;
+				grid-template-columns: repeat(24, 1fr);
+				grid-template-rows: repeat(14, 1fr);
+			}
+
+			h1 {
+				margin: 0;
+			}
+
+			.title {
+				grid-row: 3 / 8;
+				grid-column: 2 / 9;
+			}
+
+
+			.nav {
+				grid-row: 1 / span 1;
+				grid-column: 1 / -1;
+				display: grid;
+				grid-template-columns: 2fr 1fr 1fr;
+				align-items: center;
+				justify-items: end;
+				grid-gap: 10px;
+			}
+
+			.nav-item {
+				padding: 10px;
+			}
+
+
+			.main-content {
+				height: auto;
+				grid-row: 3 / 9;
+				grid-column: 10 / -1;
+				padding: 2ch 2rem 0 1rem;
+				position: relative;
+			}
+
+			.footer {
+				grid-row: -1 / span;
+				grid-column: 1/ -1;
+			}
+
+			.main-content img {
+				max-height: 150px;
+			}
+
+
+			.main-content::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 1rem;
+				border-radius: 0.5rem 0.5rem 0 0;
+				background: rgba(255, 255, 255, 0.25);
+			}
+
+			.carousel {
+				grid-row: 9 / -2;
+				grid-column: 1 / -1;
+				position: relative;
+				z-index: 1;
+				padding: 1rem 1.5rem;
+				display: grid;
+				grid-gap: 20px;
+				grid-template-columns: repeat(6, 1fr);
+				grid-auto-rows: 1fr;
+			}
+
+			.car-item {
+				border: 3px solid white;
+				margin: 0 0.5rem;
+				height: fit-content;
+				width: fit-content;
+				padding: 10px;
+				font-size: 1.5rem;
+				background: var(--text-color);
+				color: var(--bg-color);
+				border-radius: 0.5rem;
+				border: 1px solid black;
+				box-shadow: none;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.car-item:hover {
+				cursor: pointer;
+				background-color: white;
+				color: black;
+			}
+
+			.content {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+
+
+			:root {
+				--bg-color: #ffe;
+				--text-color: black;
+			}
+
+			body,
+			html {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				background: var(--bg-color);
+				color: var(--text-color);
+				overflow-x: hidden;
+				font-family: 'Avenir', Helvetica, Arial, sans-serif;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				position: relative;
+				font-size: 24px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			body::before {
+				pointer-events: none;
+				content: '';
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				opacity: 0.18;
+				background-size: 50px 50px;
+			}
+		</style>
+		<script>
+			const one = `<div class="content"><img src="https://picsum.photos/200/300"></<img><p>Some one goes here</p>`
+			const two = `<div class="content"><img src="https://picsum.photos/200/300"></<img><p>Some two goes here</p>`
+			const three = `<div class="content"><img src="https://picsum.photos/200/300"></<img><p>Some three goes here</p>`
+			const four = `<div class="content"><img src="https://picsum.photos/200/300"></<img><p>Some four goes here</p>`
+			const five = `<div class="content"><img src="https://picsum.photos/200/300"></<img><p>Some five goes here</p>`
+			const six = `<div class="content"><img src="https://picsum.photos/200/300"></<img><p>Some six goes here</p>`
+			const carOne = document.querySelector('.car-one');
+			const carTwo = document.querySelector('.car-two');
+			const carThree = document.querySelector('.car-three');
+			const carFour = document.querySelector('.car-four');
+			const carFive = document.querySelector('.car-five');
+			const carSix = document.querySelector('.car-six');
+
+			const mainContent = document.querySelector('.main-content');
+			const carItem = document.querySelector('.car-item');
+
+			carOne.addEventListener('click', handleClick1);
+			function handleClick1(e) {
+				mainContent.innerHTML = one;
+			}
+			carTwo.addEventListener('click', handleClick2);
+			function handleClick2(e) {
+				mainContent.innerHTML = two;
+			}
+			carThree.addEventListener('click', handleClick3);
+			function handleClick3(e) {
+				mainContent.innerHTML = three;
+			}
+			carFour.addEventListener('click', handleClick4);
+			function handleClick4(e) {
+				mainContent.innerHTML = four;
+			}
+			carFive.addEventListener('click', handleClick5);
+			function handleClick5(e) {
+				mainContent.innerHTML = five;
+			}
+			carSix.addEventListener('click', handleClick6);
+			function handleClick6(e) {
+				mainContent.innerHTML = six;
+			}
+		</script>
+</body>
+
+</html>
